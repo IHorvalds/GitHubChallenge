@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="19A582a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Language" representedClassName=".Language" syncable="YES">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="reposContaining" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Repository" inverseName="languages" inverseEntity="Repository"/>
+    </entity>
+    <entity name="Repository" representedClassName=".Repository" syncable="YES">
+        <attribute name="apiUrl" attributeType="String"/>
+        <attribute name="forksCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="readme" optional="YES" attributeType="String"/>
+        <attribute name="starsCount" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <attribute name="watchersCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="contributors" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="contributesTo" inverseEntity="User"/>
+        <relationship name="languages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Language" inverseName="reposContaining" inverseEntity="Language"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="repos" inverseEntity="User"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="url" attributeType="String"/>
+        <relationship name="contributesTo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Repository" inverseName="contributors" inverseEntity="Repository"/>
+        <relationship name="repos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Repository" inverseName="owner" inverseEntity="Repository"/>
+    </entity>
+    <elements>
+        <element name="Repository" positionX="-463.36328125" positionY="100.6015625" width="128" height="208"/>
+        <element name="User" positionX="-216.4921875" positionY="115.65625" width="128" height="133"/>
+        <element name="Language" positionX="-706.91015625" positionY="148.4453125" width="128" height="73"/>
+    </elements>
+</model>
