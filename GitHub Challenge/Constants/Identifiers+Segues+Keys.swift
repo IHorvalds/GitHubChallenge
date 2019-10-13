@@ -17,7 +17,6 @@ let webViewCellID = "webViewCell"
 
 // segue ids
 let segueToRepoDetail = "seguetorepodetail"
-let segueToWebView = "seguetowebview"
 
 //user defaults - for saving the last checked date.
 let defaults = UserDefaults.standard
